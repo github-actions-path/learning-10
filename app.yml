@@ -1,0 +1,20 @@
+name: Create an artifact
+
+on: push
+
+env:
+  ARTIFACT_NAME: creater-artifact
+
+jobs:
+  artifact-generate:
+    name: create-artifact
+    runs-on: syr-org-v1
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: Upload artifact for mac
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: .
+    
